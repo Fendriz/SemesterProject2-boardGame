@@ -1,5 +1,4 @@
 //---CHARACTER ID's------
-
 //Margaery Tyrell, 16
 //Cersei Lannister, 238
 //Jaime Lannister, 529
@@ -10,14 +9,9 @@
 //Sansa Stark,957
 //Tyrion Lannister, 1052
 //Ser Sandor 'The Hound' Clegane, 955
-
 let ids = [16,238,529,784,823,2024,955,957,1052,954];
-
 let houses, characters;
-
 let cards=[];
-
-
 
 fetch('http://gather.no/JSON/gameofthrones/houses.json')
 	.then(function (response) {
@@ -39,11 +33,7 @@ fetch('http://gather.no/JSON/gameofthrones/houses.json')
 		console.log(error);
 	});
 
-
-
-
 function createCards(){
-
 	addCharacters(ids);
 	addAllegiances();
 	addColors();
@@ -62,9 +52,7 @@ function addCharacters(ids){
 			counter++;
 		}
 	}
-
 }
-
 
 //adding alligances from the houses.
 function addAllegiances(){
@@ -176,7 +164,6 @@ function addlistner(){
 
 
  function populateCards(cards){
-
  	for (let i = 0; i < 10; i++) {
 
  		var flex_container = document.querySelector('.flex-container');
