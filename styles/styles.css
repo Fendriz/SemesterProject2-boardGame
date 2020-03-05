@@ -72,6 +72,7 @@ line-height: 1.6;
 
 .card {
   display: grid;
+  border-radius: 18px;
   grid-template-columns: 300px;
   grid-template-rows: 40px 300px 55px 140px 60px;
   grid-template-areas: "name" "image" "faction" "text" "stats";

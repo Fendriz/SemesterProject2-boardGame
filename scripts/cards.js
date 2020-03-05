@@ -26,8 +26,10 @@ fetch('http://gather.no/JSON/gameofthrones/houses.json')
 		console.log(data);
 		characters = data;
 		createCards();
+		addSymbol();
 		populateCards(cards);
 		addlistner();
+
 
 	}).catch(function (error) {
 		console.log(error);
@@ -203,7 +205,7 @@ function addlistner(){
  		card__stats_text.className += "card__stats-text";
  		card__stats_symbol.className += "card__stats-symbol";
  		card__stats_img.className += "card__stats-img";
- 		card__stats_img.src="images/faction1.png"
+ 		card__stats_img.src=cards[i].symbolPath[0];
  		card__img_char.className += "card__img-char";
 
  		card__img_char.src= cards[i].ImgUrl;
@@ -334,4 +336,17 @@ function addImage(){
 	cards[7].ImgUrl = "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7d632c62472029.5a918ffa8e392.jpg"; //Sansa Stark,957
 	cards[8].ImgUrl = "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/41ea3f62472029.5a915904e75cc.jpg"; //Tyrion Lannister, 1052
 	cards[9].ImgUrl = "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6dad0862472029.5a915904e7b11.jpg"; //Ser Sandor 'The Hound' Clegane, 955
+}
+
+function addSymbol(){
+	cards[0].symbolPath = ["images/mtyrell_white.svg","images/mtyrell_red.svg"];
+	cards[1].symbolPath = ["images/Cersei_white.svg","images/Cersei_black.svg"];
+	cards[2].symbolPath = "";
+	cards[3].symbolPath = "";
+	cards[4].symbolPath = "";
+	cards[5].symbolPath = "";
+	cards[6].symbolPath = "";
+	cards[7].symbolPath = "";
+	cards[8].symbolPath = "";
+	cards[9].symbolPath = ["images/Tormund_white.svg","images/Tormund_green.svg"];
 }
