@@ -3,6 +3,7 @@
 
 .player{
 	text-align: center;
+	/* background: #fff; */
 }
 
 .players{
@@ -11,13 +12,28 @@
 	vertical-align: top;
 	color: white;
 }
-
-.players img{
+.player__img,
+.player2__img{
+	position: relative;
+}
+.layered-image img {
+	
+	width: 200px;
+  }
+.player__img-src,
+.player2__img-src{
 	width: 200px;
 	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 
 }
-
+.player__card-stats,
+.player2__card-stats{
+	position: absolute;
+	width: 100px;
+  	top: 50px;
+  	left: 70px;
+ 
+}
 h1{
 	font-size: 50px;
 }
@@ -25,7 +41,10 @@ h1{
 body {
   align-items: center;
   justify-content: center;
-  background:grey;
+  background: url("/images/background/4.jpg");
+  background-size:     cover;                
+    background-repeat:   no-repeat;
+    background-position: center center; 
   font-family: trajan-pro-3, serif;
   font-style: normal;
   font-weight: 200;
@@ -83,7 +102,7 @@ line-height: 1.6;
 }
 .card__img {
   grid-area: image;
-  background: url("images/img2.jpg");
+  /* background: url("images/img2.jpg"); */
   width: 300px;
   background-size: cover;
 }
@@ -134,7 +153,7 @@ line-height: 1.6;
 	padding: 10px;
 }
 .card__stats-img{
-	width: 30px;
+	width:  30px;
 }
 .card__text {
 	padding: 10px;
