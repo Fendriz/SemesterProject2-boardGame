@@ -1,0 +1,24 @@
+@import 'fonts';
+
+footer{
+    margin-top: 80px;;
+	text-align: center;
+	background-color: black;
+	color:white;
+	bottom: 0;
+    width: 100%;
+    padding: 20px;
+	
+}
+footer p {
+    padding: 20px;
+    @include fontS(20px);
+}
+footer a {
+    text-decoration: underline;
+    color: white;
+    padding: 20px;
+}
+// footer p {
+// 	padding-top: 10px;
+// }

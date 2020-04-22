@@ -46,32 +46,37 @@ function populatePlayers(){
 	let player1=0;
 	let player2=0;
 	let template = `
-	
-	<div class="player">
-		<section class="players">
-			<h1 id="player1__heading">PLAYER 1</h1>
-			<div class="player__img">
-				<img class="player__img-src" src="">
-				<img class="player__card-stats" src="">
-			</div>
+		<section class="choose_players">
+			<h1 id="choose_players__heading">CHOOSE YOUR PLAYERS!</h1>
 		</section>
-		<section class="players">
-			<h1>VS</h1>
-		</section>
-		<section class="players">
-			<h1 id="player2__heading">PLAYER2</h1>
-			<div class="player2__img">
-				<img class="player2__img-src" src="">
-				<img class="player2__card-stats" src="">
-			</div>
-			<div></div>
-		</section>
-	</div>`
+		<section class="player_container">
+			<section class="player">
+				<h1 id="player1__heading">PLAYER 1</h1>
+				<div class="player__img">
+					<img class="player__img-src" src="">
+					<img class="player__card-stats" src="">
+				</div>
+			</section>
+			<section class="player">
+				<h1>VS</h1>
+				<a href="game.html" class="button" id="playerButton">UPCOMMING LAUNCHES</a>
+			</section>
+			<section class="player">
+				<h1 id="player2__heading">PLAYER2</h1>
+				<div class="player2__img">
+					<img class="player2__img-src" src="">
+					<img class="player2__card-stats" src="">
+				</div>
+				<div></div>
+			</section>
+		</section>`
 
 	
 
 	document.querySelector('.players').innerHTML = template;
-
+	document.querySelector('#playerButton').style.display = 'none';
+	document.querySelector('.player_container').style.display = 'none';
+	document.querySelector('#choose_players__heading').style.color = 'white';
 
 
 	cardarray.forEach(function(elem) {
@@ -90,6 +95,8 @@ function populatePlayers(){
 				
 				trasisions: {
 					INIT:	function() {
+						document.querySelector('.player_container').style.display = 'none';
+						document.querySelector('.choose_players').style.display = 'block';
 						document.querySelector('.player__img-src').src = '';
 						document.querySelector('.player2__img-src').src = '';
 						document.querySelector('#player2__heading').style.color = 'white';
@@ -98,6 +105,8 @@ function populatePlayers(){
 						document.querySelector('#player1__heading').style.background = "";
 						document.querySelector('.player__card-stats').src = '';
 						document.querySelector('.player2__card-stats').src = '';
+						document.querySelector('#playerButton').style.display = 'none';
+						
 						for (var i = 0; i < cardarray.length; i++) {
 							cardarray[i].style.transform = '';
 							cardarray[i].style.opacity = "1.0";
@@ -116,6 +125,8 @@ function populatePlayers(){
 						player1 = evt.toElement.offsetParent.dataset.cardnumber;	
 						document.querySelector('#player1__heading').style.color = CARDINFO.caracter[player1-1].color;
 						document.querySelector('#player1__heading').style.background = "white";
+						document.querySelector('.player_container').style.display = 'block';
+						document.querySelector('.choose_players').style.display = 'none';
 						state = "PLAYER1";
 						
 						
@@ -129,12 +140,13 @@ function populatePlayers(){
 						document.querySelector('#player2__heading').style.color = CARDINFO.caracter[player2-1].color;
 						document.querySelector('#player2__heading').style.background = "white";
 						// document.querySelector('.player2__card-stats').src= CARDINFO.caracter[player2-1].symbol[1];
+						document.querySelector('#playerButton').style.display = 'block';
+
+
 						
 						state = "PLAYER2";
-					},
-					GAMESTART: function(){
-						console.log("game started")
-					}	
+					}
+				
 				}
 			}
 
@@ -142,22 +154,12 @@ function populatePlayers(){
 			console.log(state)
 		
 			// states.trasisions.PLAYER1();
-
+			
 			if (state == "INIT"){
 				states.trasisions.PLAYER1();
-			
-			
-			
-			
 			}
-
-
-
 			else if (state == "PLAYER1"){
-				console.log(evt.toElement.offsetParent.dataset.cardnumber)
-				console.log(player1)
 				if(evt.toElement.offsetParent.dataset.cardnumber == player1){
-					
 					states.trasisions.INIT();
 				}
 				else
@@ -165,11 +167,7 @@ function populatePlayers(){
 			}
 			else if (state == "PLAYER2"){
 				states.trasisions.INIT();
-
 			}
-
-			
-			
 	    });
 	});
 
@@ -192,14 +190,14 @@ function populateCards(){
 			gender="venus";
 			
 		if (typeof cards[i].Allegiances[0] == "undefined") {
- 			text = "The free folk are a race of people who live beyond the Wall in northern Westeros. They are more commonly referred to as 'wildlings' everywhere south of the Wall."
+ 			text = "The free folk are a race of people who live beyond the Wall in northern Westeros. They are more commonly referred to as 'wildlings'."
 			allegiances = "Free Folk"	
 			}
 		else{
-			text = `Seats: ${cards[i].Allegiances[0].Seats[0]}<br>
-			Region: ${cards[i].Allegiances[0].Region}<br>
-			AncestralWeapon: ${cards[i].Allegiances[0].AncestralWeapons[0]}<br>
-			Words: ${cards[i].Allegiances[0].Words}`
+			text = `<b>Seats:</b> ${cards[i].Allegiances[0].Seats[0]}<br>
+			<b>Region:</b> ${cards[i].Allegiances[0].Region}<br>
+			<b>AncestralWeapon:</b> ${cards[i].Allegiances[0].AncestralWeapons[0]}<br>
+			<b>Words:</b> ${cards[i].Allegiances[0].Words}`
 			allegiances = cards[i].Allegiances[0].Name;
 		}
 				
@@ -207,7 +205,7 @@ function populateCards(){
 			
 				<div class="card hover" data-cardnumber="${i+1}" style="background:${cards[i].fromcardinfo.color} ; border: 8px solid ${cards[i].fromcardinfo.color}; opacity: 1;">
 					<div class="card__name">
-						<h3>${cards[i].Name}</h3>
+						<h2>${cards[i].Name}</h2>
 					</div>
 					<div class="card__img">
 						<img class="card__img-char" src="${cards[i].fromcardinfo.imgUrl}" style="width: 300px;">

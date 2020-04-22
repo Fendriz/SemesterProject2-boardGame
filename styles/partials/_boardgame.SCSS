@@ -1,0 +1,56 @@
+.boardgame {
+	display: grid;
+    border-radius: 18px;
+	grid-template-columns: 300px 1000px 300px;
+    
+    
+
+    margin: 0 auto;
+    
+}
+.boardgame-imag{
+    grid-area: image;
+}
+
+.player1-game {
+  
+    display: grid;
+	border-radius: 18px;
+	grid-template-rows: 80px 250px 80px 150px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    background-color: #242329;
+    border: 4px solid white;
+
+    &__name{
+        color: white;
+        text-align: center;
+        padding: 20px;
+       
+    }
+    &__name h5{
+        margin: 0;
+       
+    }
+    &__img {
+        text-align: center;
+        padding-top: 20px;
+    }
+    &__dize {
+        text-align: center;
+        padding-top: 20px;
+
+    }
+}
+
+.player2-game{
+   
+    display: grid;
+	border-radius: 18px;
+    grid-template-rows: 60px 250px 60px 150px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-bottom: 80px;
+    background-color: #242329;
+    border: 4px solid white;
+}

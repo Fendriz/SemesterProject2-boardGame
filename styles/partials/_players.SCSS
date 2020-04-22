@@ -1,0 +1,32 @@
+
+
+.player{
+	display: inline-block;
+	padding-right: 60px;
+	padding-left: 60px;
+	vertical-align: top;
+	color: white;
+	text-align: center;
+}
+.player__img,
+.player2__img{
+	position: relative;
+}
+.layered-image img {
+	
+	width: 200px;
+  }
+.player__img-src,
+.player2__img-src{
+	width: 200px;
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+}
+.player__card-stats,
+.player2__card-stats{
+	position: absolute;
+	width: 100px;
+  	top: 50px;
+  	left: 70px;
+ 
+}

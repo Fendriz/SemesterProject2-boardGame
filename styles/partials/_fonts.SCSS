@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative&display=swap>);
+@import 'mixins';
+
+$cinzel: 'Cinzel', serif;
+$cinzel-d: 'Cinzel Decorative', cursive;
+
+h1{
+	font-family: $cinzel;
+	@include fontS(40px);
+}
+
+// a:hover{
+// 	color: $black;
+// 	text-decoration: none;
+// }
+// a:focus{
+// 	outline: none;
+// 	color: $white;
+// 	text-decoration: none;
+// }
+body{
+	font-family: $cinzel;
+	font-weight: 200;
+	font-style: normal;
+}
+h2	{
+	@include fontS(20px);
+	font-family: $cinzel-d;
+	font-weight: 200;
+}
+
+h3	{
+	@include fontS(14px);
+	
+}
+h4	{
+
+	font-weight: 200;
+}
+
+h5 {
+	@include fontS(30px);
+	font-family: $cinzel;
+}
+
+p{
+
+line-height: 1.6;
+}
+// @media (max-width: 576px){
+// 	h1{
+// 		@include fontS(28px);
+// 	}
+// 	h2{
+// 		font-family: $open-sans;
+// 		@include fontS(22px);
+// 	}
+// }
