@@ -1,16 +1,31 @@
 .boardgame {
 	display: grid;
     border-radius: 18px;
-	grid-template-columns: 300px 1000px 300px;
+    grid-template-rows: 808px;
+	grid-template-columns: 300px 964px 300px;
     
     
 
     margin: 0 auto;
     
 }
-.boardgame-imag{
-    grid-area: image;
+.boardgame-image{
+    
+    background: url("../images/boardgame/game.png");
+    background-repeat: no-repeat;
+    position: relative;
+
+    &__symbol{
+        position: absolute;
+        height: 50px;
+        left: 132px;
+        // left: 260px;
+        
+        top: 125px;
+    }
+
 }
+
 
 .player1-game {
   
@@ -42,7 +57,7 @@
 
     }
 }
-
+#dice,#dice2 {font-size: 8rem;}
 .player2-game{
    
     display: grid;
