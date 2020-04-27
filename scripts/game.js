@@ -220,8 +220,8 @@ function checkmove(rolled, player, nextplayer){
         
 
         function trap1(){
-            var random = Math.floor(Math.random() * 4);
-            if (player.currentpos == (player.startpos - random)){
+            
+            if (player.currentpos == (player.startpos - 3)){
                 clearInterval(trapped1);
                 traptyp1triggered = false;
                 player.startpos = player.currentpos;
