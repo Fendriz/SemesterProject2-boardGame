@@ -47,6 +47,15 @@ p{
 
 line-height: 1.6;
 }
+
+
+.button {
+	@include fontS(20px);
+	font-family: $cinzel;
+	font-weight: 200;
+
+}
+
 // @media (max-width: 576px){
 // 	h1{
 // 		@include fontS(28px);

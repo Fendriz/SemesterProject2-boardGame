@@ -1,6 +1,10 @@
 import { CARDINFO } from './cards/cardinfo.js';
 
 let cards = [];
+let player1img;
+let player2img;
+let player1symbol;
+let player2symbol;
 
 async function getResource(cardInfo){
 	const response = await fetch(cardInfo.houseUrl);
@@ -39,8 +43,10 @@ function createCards(characters,houses,cardInfo){
 	}
 }
 
+
 function populatePlayers(){
-	
+
+
 	let cardarray = document.querySelectorAll('.card');
 	let state = "INIT";
 	let player1=0;
@@ -59,7 +65,7 @@ function populatePlayers(){
 			</section>
 			<section class="player">
 				<h1>VS</h1>
-				<a href="game.html" class="button" id="playerButton">UPCOMMING LAUNCHES</a>
+				<button class="button" id="playerButton">START GAME</button>
 			</section>
 			<section class="player">
 				<h1 id="player2__heading">PLAYER2</h1>
@@ -78,6 +84,19 @@ function populatePlayers(){
 	document.querySelector('.player_container').style.display = 'none';
 	document.querySelector('#choose_players__heading').style.color = 'white';
 
+	player1img = document.querySelector('.player__img-src');
+	player2img = document.querySelector('.player2__img-src');
+
+	document.querySelector('#playerButton').addEventListener('click', function(){
+
+		localStorage.player1_img = player1img.src;
+		localStorage.player1_symbol = player1symbol;
+		localStorage.player2_img = player2img.src;
+		localStorage.player2_symbol = player2symbol;
+
+		window.location.href = 'game.html'
+		// console.log(localStorage);
+	});
 
 	cardarray.forEach(function(elem) {
 
@@ -97,8 +116,8 @@ function populatePlayers(){
 					INIT:	function() {
 						document.querySelector('.player_container').style.display = 'none';
 						document.querySelector('.choose_players').style.display = 'block';
-						document.querySelector('.player__img-src').src = '';
-						document.querySelector('.player2__img-src').src = '';
+						player1img.src = '';
+						player2img.src = '';
 						document.querySelector('#player2__heading').style.color = 'white';
 						document.querySelector('#player1__heading').style.color = 'white';
 						document.querySelector('#player2__heading').style.background = "";
@@ -119,9 +138,9 @@ function populatePlayers(){
 						player1 = evt.toElement.offsetParent.dataset.cardnumber;
 						elem.style.opacity = "0.3";
 						elem.classList.remove("hover");
-						document.querySelector('.player__img-src').src = elem.querySelector('.card__img-char').src;
+						player1img.src = elem.querySelector('.card__img-char').src;
 						// document.querySelector('.player__img-src').style.opacity = "0.3";
-						// document.querySelector('.player__card-stats').src= CARDINFO.caracter[player1-1].symbol[1];
+						player1symbol = CARDINFO.caracter[player1-1].symbol[1];
 						player1 = evt.toElement.offsetParent.dataset.cardnumber;	
 						document.querySelector('#player1__heading').style.color = CARDINFO.caracter[player1-1].color;
 						document.querySelector('#player1__heading').style.background = "white";
@@ -135,11 +154,11 @@ function populatePlayers(){
 						player2 = evt.toElement.offsetParent.dataset.cardnumber;
 						elem.style.opacity = "0.3";
 						elem.classList.remove("hover");
-						document.querySelector('.player2__img-src').src = elem.querySelector('.card__img-char').src;
+						player2img.src = elem.querySelector('.card__img-char').src;
 						// document.querySelector('.player2__img-src').style.opacity = "0.3";
 						document.querySelector('#player2__heading').style.color = CARDINFO.caracter[player2-1].color;
 						document.querySelector('#player2__heading').style.background = "white";
-						// document.querySelector('.player2__card-stats').src= CARDINFO.caracter[player2-1].symbol[1];
+						player2symbol= CARDINFO.caracter[player2-1].symbol[1];
 						document.querySelector('#playerButton').style.display = 'block';
 
 
@@ -164,6 +183,7 @@ function populatePlayers(){
 				}
 				else
 					states.trasisions.PLAYER2();
+					// console.log(player1img)
 			}
 			else if (state == "PLAYER2"){
 				states.trasisions.INIT();
