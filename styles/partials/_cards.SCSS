@@ -1,4 +1,7 @@
+@import 'mixins';
+
 .card {
+	
 	display: grid;
 	border-radius: 18px;
 	grid-template-columns: 300px;
@@ -14,6 +17,9 @@
 		/* background: url("images/img2.jpg"); */
 		width: 300px;
 		background-size: cover;
+		&-char{
+			width: 300px;
+		}
 	}
 
 	&__name {
@@ -72,4 +78,5 @@
 	transform: scale(1.15);
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
+
 

@@ -6,3 +6,109 @@
 @import "partials/fonts";
 @import "partials/boardgame";
 
+@media (max-width: 1200px){
+
+	.flex-container {
+
+		padding: 0px;
+		
+	}
+
+	.card {
+	
+		margin:10px;
+		border-radius: 10px;
+		grid-template-columns: 200px;
+		grid-template-rows: 45px 200px 65px 100px 70px;
+		
+		
+	
+		&__img {
+			
+			/* background: url("images/img2.jpg"); */
+			width: 200px;
+		
+
+			&-char{
+				width: 200px;
+			}
+		}
+	
+	
+		&__name h2{
+			@include fontS(16px);
+		}
+		&__faction h3{
+			@include fontS(14px);
+			
+		}
+		&__stats {
+			@include fontS(14px);
+		
+		}
+		&__text p{
+			line-height: 1.1;
+			@include fontS(14px);
+			
+		
+		}
+		&__text {
+			@include fontS(13px);
+			padding: 2px 10px;
+		
+		}
+
+		&__stats-gender {
+			@include fontS(14px);
+		
+		}
+		&__stats-text {
+			@include fontS(14px);
+		}
+		&__stats-symbol {
+			@include fontS(14px);
+		}
+		&__stats-img {
+		
+		}
+    }
+    
+    #choose_players__heading{
+        @include fontS(20px);
+    }
+
+    .logo {
+        width: 250px;
+    }
+    header {
+        padding-bottom: 0;
+    }
+    .player{
+        padding: 0 10px;
+    }
+
+    .player_container h1 {
+        @include fontS(16px);
+        margin: 10px;;
+    }
+    .player_container img {
+        width: 80px;
+    }
+
+    #playerButton{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 520px){
+
+    #playerButton{
+        @include fontS(14px);
+       
+        width: 100px;
+   
+    }
+    .player{
+        padding: 0;
+    }
+}

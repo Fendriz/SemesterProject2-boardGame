@@ -228,7 +228,7 @@ function populateCards(){
 						<h2>${cards[i].Name}</h2>
 					</div>
 					<div class="card__img">
-						<img class="card__img-char" src="${cards[i].fromcardinfo.imgUrl}" style="width: 300px;">
+						<img class="card__img-char" src="${cards[i].fromcardinfo.imgUrl}">
 					</div>
 					<div class="card__faction">
 						<h3>${allegiances}</h3>
