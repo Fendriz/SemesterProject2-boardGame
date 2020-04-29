@@ -1,23 +1,30 @@
 @import 'fonts';
 
 footer{
-    margin-top: 80px;;
+    position: absolute;
+    
 	text-align: center;
 	background-color: black;
 	color:white;
 	bottom: 0;
     width: 100%;
-    padding: 20px;
+    height: 170px;
 	
 }
 footer p {
-    padding: 20px;
+    padding-top: 20px;
     @include fontS(20px);
 }
 footer a {
     text-decoration: underline;
     color: white;
-    padding: 20px;
+    padding: 20px 25px;
+    
+}
+
+.footer-links {
+    margin-top: 20px;
+
 }
 // footer p {
 // 	padding-top: 10px;

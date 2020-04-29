@@ -8,11 +8,23 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <body>
+    <div class="instrction-container">
+        <div class ="instructions">
+            <h1>Instructions</h1>
+            <ul>
+                <li>First player to press ROLL will start the game!</li>
+                <li>Watch out for traps!</li>
+                <li>First player to 30 wins!</li>
+            </ul>
+            <button class="button" id="instructions-button">Continue</button>
+        </div>
+    </div>
 	<header>
 		<nav>
 			<img src="images/logo/logo.png" alt="logo">
 		</nav>
     </header>
+   
     <div class ="container">
         <div class="boardgame">
             <section class="player1-game">
@@ -20,7 +32,7 @@
                     <h5>PLAYER1</h5>
                 </div>
                 <div class="player1-game__img">
-                    <img class="player__img-src" src="">
+                    <img class="player__img-src">
                 </div>
                 <div class="player1-game__dize">
                     <button class="button" id="dize-button1">Roll</button>
@@ -29,15 +41,16 @@
                 </div>
             </section>
             <section class="boardgame-image">
-                <img class="boardgame-image__symbol" id = "boardgame-image__player1"src="">
-                <img class="boardgame-image__symbol" id = "boardgame-image__player2" src="">
+                <img class="boardgame-image__symbol" id = "boardgame-image__player1">
+                <img class="boardgame-image__symbol" id = "boardgame-image__player2">
+                
             </section>
             <section class="player2-game">
                 <div class="player2-game__name">
                     <h5>PLAYER2</h5>
                 </div>
                 <div class="player2-game__img">
-                    <img class="player2__img-src" src="">
+                    <img class="player2__img-src">
                 </div>
                 <div class="player2-game__dize">
                     <button class="button"  id="dize-button2">Roll</button>
@@ -45,14 +58,30 @@
                     <div class="dices" id="dice2"></div>
                 </div>
             </section>
+            <section class ="boardgame-traps">
+                <div class="boardgame-traps__firetrap">
+                    <img src="images/boardgame/firetrap.png" alt="firetrap">
+                    
+                    <p><b>Firetrap</b> - Move back 3 turns!</p>
+                </div>
+                <div class="boardgame-traps__stonetrap">
+                    <img src="images/boardgame/stonetrap.png" alt="stonetrap">
+                    <p><b>Stonetrap</b> - Move back 2 turns!</p>
+                </div>
+            </section>
         </div>
+
+        <a href="index.html" class="button" id="quit-button">Quit Game</a>
     </div>
 	<footer>
         <p>Sound effects from Zapsplat.com</p>
-		<p>Character artwork created by Robbin Gregorio</p>
-		<a href="https://www.behance.net/gallery/62472029/Game-of-Thrones-Papercuts" target="_blank">Link to Artwork</a>
-		<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US" target="_blank">Link to license</a>
-		<a href="https://www.zapsplat.com" target="_blank">Link to zapsplat</a>
+        <p>Character artwork created by Robbin Gregorio</p>
+       
+		<div class = "footer-links">
+			<a href="https://www.behance.net/gallery/62472029/Game-of-Thrones-Papercuts" target="_blank">Link to Artwork</a>
+			<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US" target="_blank">Link to license</a>
+			<a href="https://www.zapsplat.com" target="_blank">Link to zapsplat</a>
+		</div>
 	</footer>
 </body>
 <script type="module" src="scripts/game.js"></script>

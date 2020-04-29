@@ -6,10 +6,12 @@ body {
 	background-repeat:   no-repeat;
 	background-position: center center; 
 	margin: 0;
+	position: relative;
+ 	min-height: 100vh;
   }
 
   header {
-	  margin: 20px;
+	  padding: 20px;
   }
 
  
@@ -30,17 +32,37 @@ body {
 
 }
 
+.instrction-container{
+	position: absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background-color: black;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button:hover {
+	cursor: pointer;
+	border: 2px solid #085D34;
+}
 .flex-container {
 
-	margin: 50px 20px;
+	padding: 50px 20px;
+	padding-bottom: 250px;
 	justify-content: center;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .container {
-	width: 1600px;
+	width: 1564px;
 	margin: 0 auto;
+	
+	padding-bottom: 400px;
 }
 
 .hover:hover {

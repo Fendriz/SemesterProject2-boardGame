@@ -102,7 +102,7 @@ function populatePlayers(){
 
 		elem.addEventListener("click", function(evt) {
 			
-			
+			console.log(evt);
 
 
 
@@ -135,13 +135,13 @@ function populatePlayers(){
 					},
 					
 					PLAYER1: function(){
-						player1 = evt.toElement.offsetParent.dataset.cardnumber;
+						player1 = evt.target.offsetParent.dataset.cardnumber;
 						elem.style.opacity = "0.3";
 						elem.classList.remove("hover");
 						player1img.src = elem.querySelector('.card__img-char').src;
 						// document.querySelector('.player__img-src').style.opacity = "0.3";
 						player1symbol = CARDINFO.caracter[player1-1].symbol[1];
-						player1 = evt.toElement.offsetParent.dataset.cardnumber;	
+						player1 = evt.target.offsetParent.dataset.cardnumber;	
 						document.querySelector('#player1__heading').style.color = CARDINFO.caracter[player1-1].color;
 						document.querySelector('#player1__heading').style.background = "white";
 						document.querySelector('.player_container').style.display = 'block';
@@ -151,7 +151,7 @@ function populatePlayers(){
 						
 					},
 					PLAYER2: function(){
-						player2 = evt.toElement.offsetParent.dataset.cardnumber;
+						player2 = evt.target.offsetParent.dataset.cardnumber;
 						elem.style.opacity = "0.3";
 						elem.classList.remove("hover");
 						player2img.src = elem.querySelector('.card__img-char').src;
@@ -178,7 +178,7 @@ function populatePlayers(){
 				states.trasisions.PLAYER1();
 			}
 			else if (state == "PLAYER1"){
-				if(evt.toElement.offsetParent.dataset.cardnumber == player1){
+				if(evt.target.offsetParent.dataset.cardnumber == player1){
 					states.trasisions.INIT();
 				}
 				else
@@ -247,7 +247,7 @@ function populateCards(){
 							<div class="value">${cards[i].fromcardinfo.trimborn}</div>
 							<div class="type">Born</div>
 						</div><div class="card__stats-symbol">
-							<img class="card__stats-img" src="${cards[i].fromcardinfo.symbol[0]}">
+							<img class="card__stats-img" src="${cards[i].fromcardinfo.symbol[1]}">
 							<div class="type">Symbol</div>
 						</div>
 					</div>

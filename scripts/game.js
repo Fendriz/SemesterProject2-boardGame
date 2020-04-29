@@ -5,6 +5,10 @@
 
 document.querySelector('#dize-button1').addEventListener('click', function(){rollTheDice(player1, player2);});
 document.querySelector('#dize-button2').addEventListener('click', function(){rollTheDice(player2, player1);});
+document.querySelector('#instructions-button').addEventListener('click', function(){
+    console.log("test");
+    document.querySelector('.instrction-container').style.display = 'none';
+});
 
 console.log(localStorage);
 document.querySelector('.player__img-src').src = localStorage.player1_img;
@@ -16,6 +20,8 @@ document.querySelector('#boardgame-image__player2').src = localStorage.player2_s
 
 const diceSound = new Audio('sound/dice.mp3');
 const moveSound = new Audio('sound/move.mp3');
+const fireSound = new Audio('sound/firetrap.mp3');
+const stoneSound = new Audio('sound/stonetrap.mp3');
 // localStorage.player1_img = player1img.src;
 // 		localStorage.player1_symbol = player1symbol;
 // 		localStorage.player2_img = player2img.src;
@@ -54,7 +60,8 @@ var rollTheDice = function(player, nextplayer) {
         },500)
     }, 50)
     
-    checkmove(player1Roll + 1,player,nextplayer);
+     checkmove(player1Roll + 1,player,nextplayer);
+    // checkmove(10,player,nextplayer);
 
     
 }
@@ -181,11 +188,17 @@ function checkmove(rolled, player, nextplayer){
                     setTimeout(enablebutton(nextplayer), 1000);
                 }
                 else if (traptyp1triggered == true){
-                    console.log(traptyp1triggered)
-                    var trapped1 = setInterval(trap1, 1000);
+                    var trapped1,trapped2;
+                    fireSound.play();
+                     setTimeout(function(){
+                        trapped1 = setInterval(trap1,1000);
+                    },2000);
                 }
                 else if (traptyp2triggered == true){
-                    var trapped2 = setInterval(trap2, 1000);
+                    stoneSound.play();
+                    setTimeout(function(){
+                        trapped2 = setInterval(trap2,1000);
+                    },4000);
                 }
     
             }

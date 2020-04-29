@@ -1,15 +1,70 @@
+#quit-button{
+    margin-top: 100px;
+    opacity:0.4;
+    // box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+#quit-button:hover{
+    
+    opacity:1;
+    // box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
 .boardgame {
 	display: grid;
     border-radius: 18px;
-    grid-template-rows: 808px;
+    // grid-template-rows: 808px;
 	grid-template-columns: 300px 964px 300px;
     
     
 
     margin: 0 auto;
     
+
+    grid-template-areas:
+    'player1 board player2'
+    'player1 board player2'
+    '. traps .';
+    
+    
 }
+
+.boardgame-traps{
+    grid-area:traps;
+    text-align: center;
+   
+
+    &__stonetrap p{
+        
+        vertical-align: middle;
+        color: white;
+        display: inline-block;
+       
+    }
+    &__firetrap p{
+      
+        vertical-align: middle;
+        color: white;
+        display: inline-block;
+        padding-right: 30px;
+    }
+
+}
+
+.boardgame-traps img{
+    display: inline-block;
+    width: 40px;
+    
+}
+.boardgame-traps div{
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+
+
+
 .boardgame-image{
+
+    grid-area:board;
     
     background: url("../images/boardgame/game.png");
     background-repeat: no-repeat;
@@ -20,15 +75,30 @@
         height: 50px;
         left: 132px;
         // left: 260px;
-        
         top: 125px;
     }
 
 }
 
+.instructions {
+    color: white;
+    
+}
+
+.instructions ul {
+    margin-left: 10px;
+}
+.instructions ul li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#instructions-button {
+    margin-top: 20px;
+    margin-left: 30px;
+}
 
 .player1-game {
-  
+    grid-area:player1;
     display: grid;
 	border-radius: 18px;
 	grid-template-rows: 80px 250px 80px 150px;
@@ -61,7 +131,7 @@
 }
 
 .player2-game {
-  
+    grid-area:player2;
     display: grid;
 	border-radius: 18px;
 	grid-template-rows: 80px 250px 80px 150px;
