@@ -17,7 +17,7 @@ document.querySelector('.player2__img-src').src = localStorage.player2_img;
 document.querySelector('#boardgame-image__player1').src = localStorage.player1_symbol;
 document.querySelector('#boardgame-image__player2').src = localStorage.player2_symbol;
 
-
+const soundwin = new Audio('sound/winning.mp3');
 const diceSound = new Audio('sound/dice.mp3');
 const moveSound = new Audio('sound/move.mp3');
 const fireSound = new Audio('sound/firetrap.mp3');
@@ -118,7 +118,9 @@ var player1 = {
     startpos: 1,
     dize: document.getElementById('dice'),
     dizebutton: document.getElementById("dize-button1"),
-    symbol: document.querySelector('#boardgame-image__player1')
+    symbol: document.querySelector('#boardgame-image__player1'),
+    name: localStorage.player1_name,
+    player: 1
 
 }
 
@@ -132,7 +134,9 @@ var player2 = {
     startpos: 1,
     dize: document.getElementById('dice2'),
     dizebutton: document.getElementById("dize-button2"),
-    symbol: document.querySelector('#boardgame-image__player2')
+    symbol: document.querySelector('#boardgame-image__player2'),
+    name: localStorage.player2_name,
+    player: 2
 }
 
 // console.log(player1)
@@ -178,7 +182,7 @@ function checkmove(rolled, player, nextplayer){
     }
     function move(){
 
-            console.log(player.posx)
+            console.log(player.currentpos)
           
             if (player.currentpos == (roll + player.startpos)){
                 clearInterval(moving);
@@ -203,6 +207,19 @@ function checkmove(rolled, player, nextplayer){
     
             }
             else if (player.currentpos < 6){
+                // soundwin.play();
+                // var winner;
+                // if (player.player==1){
+                //     console.log("winner");
+                //     winner = sessionStorage.getItem("player1");
+                //     sessionStorage.setItem("winner", winner);
+                //     window.location.href = 'winner.html'
+                // }
+                // else if (player.player==2){
+                //     winner = sessionStorage.getItem("player2");
+                //     sessionStorage.setItem("winner", winner);
+                //     window.location.href = 'winner.html'
+                // }
                 moveright(player);
             }
     
@@ -229,6 +246,21 @@ function checkmove(rolled, player, nextplayer){
             }
             else if (player.currentpos > 24 && player.currentpos < 30){
                 moveright(player);
+            }
+            else if (player.currentpos >= 30 ){
+                var winner;
+                if (player.player==1){
+                    console.log("winner");
+                    winner = sessionStorage.getItem("player1");
+                    sessionStorage.setItem("winner", winner);
+                    window.location.href = 'winner.html'
+                }
+                else if (player.player==2){
+                    winner = sessionStorage.getItem("player2");
+                    sessionStorage.setItem("winner", winner);
+                    window.location.href = 'winner.html'
+                }
+
             }
         
 

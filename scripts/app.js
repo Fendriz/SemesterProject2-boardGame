@@ -5,6 +5,8 @@ let player1img;
 let player2img;
 let player1symbol;
 let player2symbol;
+let player1name;
+let player2name;
 
 async function getResource(cardInfo){
 	const response = await fetch(cardInfo.houseUrl);
@@ -46,7 +48,7 @@ function createCards(characters,houses,cardInfo){
 
 function populatePlayers(){
 
-
+	// let cards = document.querySelector('.cards');
 	let cardarray = document.querySelectorAll('.card');
 	let state = "INIT";
 	let player1=0;
@@ -91,8 +93,10 @@ function populatePlayers(){
 
 		localStorage.player1_img = player1img.src;
 		localStorage.player1_symbol = player1symbol;
+		localStorage.player1_name = player1name;
 		localStorage.player2_img = player2img.src;
 		localStorage.player2_symbol = player2symbol;
+		localStorage.player2_name = player2name;
 
 		window.location.href = 'game.html'
 		// console.log(localStorage);
@@ -141,12 +145,19 @@ function populatePlayers(){
 						player1img.src = elem.querySelector('.card__img-char').src;
 						// document.querySelector('.player__img-src').style.opacity = "0.3";
 						player1symbol = CARDINFO.caracter[player1-1].symbol[1];
+						player1name = cards[player1-1].Name;
 						player1 = evt.target.offsetParent.dataset.cardnumber;	
+
+						var pageContentplayer1 = document.querySelector(".card[data-cardnumber='"+ player1 +"']");
+						sessionStorage.setItem("player1", pageContentplayer1.outerHTML);
+
 						document.querySelector('#player1__heading').style.color = CARDINFO.caracter[player1-1].color;
 						document.querySelector('#player1__heading').style.background = "white";
 						document.querySelector('.player_container').style.display = 'block';
 						document.querySelector('.choose_players').style.display = 'none';
 						state = "PLAYER1";
+
+						
 						
 						
 					},
@@ -159,6 +170,11 @@ function populatePlayers(){
 						document.querySelector('#player2__heading').style.color = CARDINFO.caracter[player2-1].color;
 						document.querySelector('#player2__heading').style.background = "white";
 						player2symbol= CARDINFO.caracter[player2-1].symbol[1];
+						player2name = cards[player2-1].Name;
+						var pageContentplayer2 = document.querySelector(".card[data-cardnumber='"+ player2 +"']");
+						sessionStorage.setItem("player2", pageContentplayer2.outerHTML);
+						console.log(sessionStorage);
+						console.log(cards[0].Name);
 						document.querySelector('#playerButton').style.display = 'block';
 
 

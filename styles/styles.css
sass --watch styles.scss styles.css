@@ -522,23 +522,8 @@ p {
   padding-bottom: 20px;
 }
 
-#winner_container {
-  padding-bottom: 0;
-  width: 1000px;
-}
-
-.winner_card {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-#playagain-button {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.play-again {
-  padding-bottom: 200px;
+#date {
+  text-align: center;
 }
 
 @media (max-width: 1600px) {
@@ -714,4 +699,4 @@ p {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.css%0Asass%20--watch%20styles.scss%20styles.css.map */
