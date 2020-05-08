@@ -1,114 +1,6 @@
 
 
-
-// document.querySelector('.player2__img-src').src = localStorage.player2;
-
-document.querySelector('#dize-button1').addEventListener('click', function(){rollTheDice(player1, player2);});
-document.querySelector('#dize-button2').addEventListener('click', function(){rollTheDice(player2, player1);});
-document.querySelector('#instructions-button').addEventListener('click', function(){
-    console.log("test");
-    document.querySelector('.instrction-container').style.display = 'none';
-});
-
-console.log(localStorage);
-document.querySelector('.player__img-src').src = localStorage.player1_img;
-document.querySelector('.player2__img-src').src = localStorage.player2_img;
-
-document.querySelector('#boardgame-image__player1').src = localStorage.player1_symbol;
-document.querySelector('#boardgame-image__player2').src = localStorage.player2_symbol;
-
-const soundwin = new Audio('sound/winning.mp3');
-const diceSound = new Audio('sound/dice.mp3');
-const moveSound = new Audio('sound/move.mp3');
-const fireSound = new Audio('sound/firetrap.mp3');
-const stoneSound = new Audio('sound/stonetrap.mp3');
-// localStorage.player1_img = player1img.src;
-// 		localStorage.player1_symbol = player1symbol;
-// 		localStorage.player2_img = player2img.src;
-// 		localStorage.player2_symbol = player2symbol;
-
-
-var rollTheDice = function(player, nextplayer) {
-    disablebutton(player1);
-    disablebutton(player2);
-
-    diceSound.play();
-
-    const DICE= 
-    
-    ['<i class="fas fa-dice-one fa-dice"></i>',
-    '<i class="fas fa-dice-two fa-dice"></i>',
-    '<i class="fas fa-dice-three fa-dice"></i>',
-    '<i class="fas fa-dice-four fa-dice"></i>',
-    '<i class="fas fa-dice-five fa-dice"></i>',
-    '<i class="fas fa-dice-six fa-dice"></i>'];
-
-
-
-    var player1Roll = Math.floor(Math.random() * 6);
-
-    
-
-    
-    var diceanime = setInterval(function(){
-
-        var randomRoll = Math.floor(Math.random() * 6);
-        player.dize.innerHTML = DICE[randomRoll];
-        setTimeout(function(){
-            player.dize.innerHTML = DICE[player1Roll];
-            clearInterval(diceanime);
-        },500)
-    }, 50)
-    
-     checkmove(player1Roll + 1,player,nextplayer);
-    // checkmove(10,player,nextplayer);
-
-    
-}
-
-// var rollTheDice2 = function() {
-//     disablebutton(player1);
-//     disablebutton(player2);
-//     var player2Roll = Math.floor(Math.random() * 6);
-//     var roll2= "&#x268" + player2Roll + ";";
-//     document.getElementById('dice2').innerHTML = roll2;
-
-
-//     checkmove(player2Roll + 1,player2,player1);
-// }
-
-
-
-function disablebutton(player){
-
-    
-    player.dizebutton.style.backgroundColor = "gray"; 
-    player.dizebutton.style.Color = "white"; 
-    player.dizebutton.innerHTML = "WAIT";
-    player.dizebutton.disabled = true;
-}
-
-function enablebutton(player){
-
-    
-    player.dizebutton.style.backgroundColor = "#085D34"; 
-    player.dizebutton.innerHTML = "ROLL";
-    player.dizebutton.disabled = false;
-}
-
-// symbol.style.transitionDelay = "2s";
-// symbol.style.left= "500px";
-
-
-// var startposxp1 = 132;
-// var startposyp1 = 125;
-// var posx = 132;
-// var posy = 125;
-
-// var currentpos=1;
-// var startpos=1;
-
-var player1 = {
+let player1 = {
 
     startposx: 132,
     startposy: 125,
@@ -124,7 +16,7 @@ var player1 = {
 
 }
 
-var player2 = {
+let player2 = {
 
     startposx: 132,
     startposy: 125,
@@ -139,50 +31,86 @@ var player2 = {
     player: 2
 }
 
-// console.log(player1)
+//buttons
+document.querySelector('#dize-button1').addEventListener('click', function(){rollTheDice(player1, player2);});
+document.querySelector('#dize-button2').addEventListener('click', function(){rollTheDice(player2, player1);});
+document.querySelector('#instructions-button').addEventListener('click', function(){
+    document.querySelector('.instrction-container').style.display = 'none';
+});
+
+//localstorage
+document.querySelector('.player__img-src').src = localStorage.player1_img;
+document.querySelector('.player2__img-src').src = localStorage.player2_img;
+document.querySelector('#boardgame-image__player1').src = localStorage.player1_symbol;
+document.querySelector('#boardgame-image__player2').src = localStorage.player2_symbol;
+
+//initiates sound
+const soundwin = new Audio('sound/winning.mp3');
+const diceSound = new Audio('sound/dice.mp3');
+const moveSound = new Audio('sound/move.mp3');
+const fireSound = new Audio('sound/firetrap.mp3');
+const stoneSound = new Audio('sound/stonetrap.mp3');
+
+
+//dice rolling function
+var rollTheDice = function(player, nextplayer) {
+   
+    let player1Roll = Math.floor(Math.random() * 6);
+    const DICE= 
+    ['<i class="fas fa-dice-one fa-dice"></i>',
+    '<i class="fas fa-dice-two fa-dice"></i>',
+    '<i class="fas fa-dice-three fa-dice"></i>',
+    '<i class="fas fa-dice-four fa-dice"></i>',
+    '<i class="fas fa-dice-five fa-dice"></i>',
+    '<i class="fas fa-dice-six fa-dice"></i>'];
+    
+    disablebutton(player1);
+    disablebutton(player2);
+    diceSound.play();
+    let diceanime = setInterval(function(){
+        let randomRoll = Math.floor(Math.random() * 6);
+        player.dize.innerHTML = DICE[randomRoll];
+        setTimeout(function(){
+            player.dize.innerHTML = DICE[player1Roll];
+            clearInterval(diceanime);
+        },500)
+    }, 50)
+    checkmove(player1Roll + 1,player,nextplayer);
+}
 
 
 
-// var startposxp2 = 132;
-// var startposyp2 = 125;
-// var posxp2 = 132;
-// var posyp2 = 125;
+function disablebutton(player){
+    
+    player.dizebutton.style.backgroundColor = "gray"; 
+    player.dizebutton.style.Color = "white"; 
+    player.dizebutton.innerHTML = "WAIT";
+    player.dizebutton.disabled = true;
+}
 
-// var currentposp2=1;
-// var startposp2=1;
+function enablebutton(player){
+  
+    player.dizebutton.style.backgroundColor = "#085D34"; 
+    player.dizebutton.innerHTML = "ROLL";
+    player.dizebutton.disabled = false;
+}
 
-
-
+//movelogic
 function checkmove(rolled, player, nextplayer){
-
-
     
     var roll = rolled;
-
     var traptyp1triggered=false;
     var traptyp2triggered=false;
     const traptype1 = [5,11,24]
     const traptype2 = [15,29]
-
-    
-    
+        
     checktrap();
     var moving = setInterval(move, 1000);
     
 
-    function checktrap(){
-        
-
-        if (traptype1.includes(roll + player.startpos)) {
-            traptyp1triggered = true;
-        }
-        if (traptype2.includes(roll + player.startpos)) {
-            traptyp2triggered = true;
-        }
-    }
+    
     function move(){
 
-            console.log(player.currentpos)
           
             if (player.currentpos == (roll + player.startpos)){
                 clearInterval(moving);
@@ -207,19 +135,6 @@ function checkmove(rolled, player, nextplayer){
     
             }
             else if (player.currentpos < 6){
-                // soundwin.play();
-                // var winner;
-                // if (player.player==1){
-                //     console.log("winner");
-                //     winner = sessionStorage.getItem("player1");
-                //     sessionStorage.setItem("winner", winner);
-                //     window.location.href = 'winner.html'
-                // }
-                // else if (player.player==2){
-                //     winner = sessionStorage.getItem("player2");
-                //     sessionStorage.setItem("winner", winner);
-                //     window.location.href = 'winner.html'
-                // }
                 moveright(player);
             }
     
@@ -260,10 +175,8 @@ function checkmove(rolled, player, nextplayer){
                     sessionStorage.setItem("winner", winner);
                     window.location.href = 'winner.html'
                 }
-
             }
         
-
         function trap1(){
             
             if (player.currentpos == (player.startpos - 3)){
@@ -303,8 +216,19 @@ function checkmove(rolled, player, nextplayer){
 
         }
     }
+    function checktrap(){
+        
+
+        if (traptype1.includes(roll + player.startpos)) {
+            traptyp1triggered = true;
+        }
+        if (traptype2.includes(roll + player.startpos)) {
+            traptyp2triggered = true;
+        }
+    }
 }
 
+//player moves right
 function moveright(player){
    
     console.log("test")
@@ -327,6 +251,7 @@ function moveright(player){
 }
 
 
+//player moves left
 function moveleft(player){
   
     
@@ -348,6 +273,7 @@ function moveleft(player){
      
 }
 
+//player moves left but different position update bacause player moves in oppistie direction now
 function trappedleft(player){
   
     
@@ -369,7 +295,7 @@ function trappedleft(player){
     }
      
 }
-
+//player moves right but different position update bacause player moves in oppistie direction now
 function trappedright(player){
     var id = setInterval(frame, 5);
         
@@ -393,7 +319,7 @@ function trappedright(player){
 
 
 
-
+//player moves down
 function movedown(player){
 
     var id = setInterval(frame, 5);
@@ -415,12 +341,3 @@ function movedown(player){
      
 }
 
-
-
-
-
-// for (let i = 0; i < 128; i++) {
-//     setTimeout(300)
-//     symbol.style.left = 132 + i + "px";
-    
-// }

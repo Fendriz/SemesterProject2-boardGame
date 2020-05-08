@@ -14,11 +14,9 @@ async function getResource(cardInfo){
 	const response2 = await fetch(cardInfo.caracterUrl);
 	const characters = await response2.json();
 	createCards(characters,houses,cardInfo);
-	
 	populateCards();
 	populatePlayers();
-	console.log(cards);
-	console.log(CARDINFO)
+	
 }
 
 
@@ -105,17 +103,7 @@ function populatePlayers(){
 	cardarray.forEach(function(elem) {
 
 		elem.addEventListener("click", function(evt) {
-			
-			console.log(evt);
-
-
-
-
-
-			
 			const states = {
-
-				
 				trasisions: {
 					INIT:	function() {
 						document.querySelector('.player_container').style.display = 'none';
@@ -156,9 +144,6 @@ function populatePlayers(){
 						document.querySelector('.player_container').style.display = 'block';
 						document.querySelector('.choose_players').style.display = 'none';
 						state = "PLAYER1";
-
-						
-						
 						
 					},
 					PLAYER2: function(){
@@ -176,19 +161,11 @@ function populatePlayers(){
 						console.log(sessionStorage);
 						console.log(cards[0].Name);
 						document.querySelector('#playerButton').style.display = 'block';
-
-
-						
 						state = "PLAYER2";
 					}
 				
 				}
 			}
-
-
-			console.log(state)
-		
-			// states.trasisions.PLAYER1();
 			
 			if (state == "INIT"){
 				states.trasisions.PLAYER1();
@@ -199,7 +176,7 @@ function populatePlayers(){
 				}
 				else
 					states.trasisions.PLAYER2();
-					// console.log(player1img)
+					
 			}
 			else if (state == "PLAYER2"){
 				states.trasisions.INIT();
@@ -209,9 +186,7 @@ function populatePlayers(){
 
 
 }
-
 function populateCards(){
-
 	let template = [];
 	let gender;
 	let text;
@@ -268,10 +243,7 @@ function populateCards(){
 						</div>
 					</div>
 				</div>`;
-				
 		document.querySelector('.cards').innerHTML += template[i];
-		
 	}
 }
-
 getResource(CARDINFO);
