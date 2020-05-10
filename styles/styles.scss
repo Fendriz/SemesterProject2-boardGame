@@ -14,11 +14,7 @@
     .boardgame {
         display: grid;
         border-radius: 18px;
-        // grid-template-rows: 808px;
         grid-template-columns: 300px 964px 300px;
-        
-        
-    
         margin: 0 auto;
         grid-template-rows: 250px 50px 771px;
 	    grid-template-columns: 482px 482px;
@@ -27,16 +23,13 @@
         'player1 player2'
         'traps traps '
         'board board ';
-        
-        
     }
+
     #quit-button{
         margin-top: 0;
     }
     .player2-game,.player1-game{
         grid-template-rows: 60px 60px 60px;
-     
-     
         border: 2px solid white;
         margin: 0 40px;
         margin-bottom: 20px;;
@@ -45,19 +38,14 @@
             display: none;
         }
     }
-
     .boardgame-image {
         transform: scale(0.8);
         transform-origin: top center;
-    
-        // margin: 0 auto;
     }
-
     .container {
         width: 964px;
         padding-bottom: 250px;
     }
-
     .player2-game{
         padding: 0;
         margin-right: 150px;
@@ -74,67 +62,67 @@
         @include fontS(20px);
         padding: 0;
     }
-    .player1-game {
-       
-       
-    }
 }
 
 @media (max-width: 1200px){
 
+    header {
+        padding-bottom: 0;
+    }
+
+    footer{
+        height: 300px;
+    }
+
+    footer p{
+        @include fontS(16px);
+    }
+
+    footer a {
+        display: block;
+    }
+
 	.flex-container {
-
-		padding: 0px;
-		
-	}
-
+        padding: 0px;
+    }
+    
+    .cards{
+        padding-bottom: 350px;
+    }
 	.card {
 	
 		margin:10px;
 		border-radius: 10px;
 		grid-template-columns: 200px;
 		grid-template-rows: 45px 200px 65px 100px 70px;
-		
-		
 	
 		&__img {
 			
-			/* background: url("images/img2.jpg"); */
-			width: 200px;
-		
-
+            width: 200px;
+            
 			&-char{
 				width: 200px;
 			}
 		}
-	
-	
 		&__name h2{
 			@include fontS(16px);
 		}
 		&__faction h3{
 			@include fontS(14px);
-			
 		}
 		&__stats {
 			@include fontS(14px);
-		
 		}
 		&__text p{
 			line-height: 1.1;
 			@include fontS(14px);
-			
-		
 		}
 		&__text {
 			@include fontS(13px);
 			padding: 2px 10px;
-		
 		}
-
 		&__stats-gender {
 			@include fontS(14px);
-		
 		}
 		&__stats-text {
 			@include fontS(14px);
@@ -150,17 +138,12 @@
     #choose_players__heading{
         @include fontS(20px);
     }
-
     .logo {
         width: 250px;
-    }
-    header {
-        padding-bottom: 0;
     }
     .player{
         padding: 0 10px;
     }
-
     .player_container h1 {
         @include fontS(16px);
         margin: 10px;;
@@ -168,21 +151,15 @@
     .player_container img {
         width: 80px;
     }
-
     #playerButton{
-        
         margin-top: 20px;
     }
     .fas{
         @include fontS(24px);
-      
     }
     .value{
         @include fontS(16px);
-   
-        
     }
-    
     .card__stats-img {
         height: 26px;
     }
@@ -194,21 +171,15 @@
         @include fontS(14px);
        
         width: 100px;
-   
     }
     .player{
         padding: 0;
     }
-
     .card {
         grid-template-columns: 250px;
     grid-template-rows: 45px 200px 65px 80px 70px;
-		
-		
-	
 		&__img {
 			
-			/* background: url("images/img2.jpg"); */
 			width: 250px;
             height: 200px;
           
@@ -226,6 +197,4 @@
     header {
         padding-top: 3px;
     }
-
-   
 }

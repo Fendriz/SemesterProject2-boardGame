@@ -201,7 +201,7 @@ footer a {
 body {
   align-items: center;
   justify-content: center;
-  background: url("/images/background/4.jpg");
+  background: url("../images/background/4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -523,6 +523,7 @@ p {
 }
 
 #winner_container {
+  margin-top: 20px;
   padding-bottom: 0;
   width: 1000px;
 }
@@ -596,8 +597,28 @@ p {
   }
 }
 @media (max-width: 1200px) {
+  header {
+    padding-bottom: 0;
+  }
+
+  footer {
+    height: 300px;
+  }
+
+  footer p {
+    font-size: 1rem;
+  }
+
+  footer a {
+    display: block;
+  }
+
   .flex-container {
     padding: 0px;
+  }
+
+  .cards {
+    padding-bottom: 350px;
   }
 
   .card {
@@ -607,7 +628,6 @@ p {
     grid-template-rows: 45px 200px 65px 100px 70px;
   }
   .card__img {
-    /* background: url("images/img2.jpg"); */
     width: 200px;
   }
   .card__img-char {
@@ -645,10 +665,6 @@ p {
 
   .logo {
     width: 250px;
-  }
-
-  header {
-    padding-bottom: 0;
   }
 
   .player {
@@ -695,7 +711,6 @@ p {
     grid-template-rows: 45px 200px 65px 80px 70px;
   }
   .card__img {
-    /* background: url("images/img2.jpg"); */
     width: 250px;
     height: 200px;
   }
